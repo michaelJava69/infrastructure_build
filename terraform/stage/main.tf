@@ -7,6 +7,20 @@ provider "aws" {
 }
 
 
+terraform {
+  backend "s3" {
+
+    # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
+    # manually, uncomment and fill in the config below.
+
+     bucket         = "s3-bucket-jenkins-terraform"
+     key            = "terraform/terraform.tfstate"
+     region         = "us-east-2"
+     dynamodb_table = "s3-bucket-jenkins-terraform-locks"
+     encrypt        = true
+
+  }
+}
 
 resource "aws_security_group" "sg_jenkins" {
   name = "sg_${var.jenkins_name}"

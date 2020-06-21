@@ -12,8 +12,8 @@ scripts
 
 You need to change the default values of `s3_bucket` and `key_name` terraform variables defined in `variables.tf` or set them via environment variables:
 ```
-$ export TF_VAR_s3_bucket=<your s3 bucket>
-$ export TF_VAR_key_name=<your keypair name>
+$ export TF_VAR_s3_bucket=<your s3 bucket>  i.e TF_VAR_s3_bucket=s3-bucket-jenkins-terraform
+$ export TF_VAR_key_name=<your keypair name>   i.e TF_VAR_table_name=s3-bucket-jenkins-terraform-locks
 ```
 
 In stage folder

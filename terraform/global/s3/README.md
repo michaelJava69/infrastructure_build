@@ -10,6 +10,12 @@ For more info, please see Chapter 3, "How to Manage Terraform State", of
 
 ## Pre-requisites
 
+
+```
+$ export TF_VAR_s3_bucket=<your s3 bucket>   i.e TF_VAR__s3_bucket=s3-bucket-jenkins-terraform
+$ export TF_VAR_key_name=<your keypair name>  i.e. TF_VAR_key_name=s3-bucket-jenkins-terraform-locks
+
+```
 * You must have [Terraform](https://www.terraform.io/) installed on your computer. 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
