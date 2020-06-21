@@ -15,6 +15,13 @@ Source code in this repository is used for set of Jenkins tutorials on [Popularo
 You can just build Docker image from the provided Dockerfile and run Docker container locally.
 
     cd files
-    docker build -t popularowl/jenkins .
-    docker run -d --name jenkins-server -p 8080:8080 popularowl/jenkins
+    docker build -t michael/jenkins .
+    docker run -d --name jenkins-server -p 80:8080 michael/jenkins
 
+    docker tag  michael/jenkins ugbechie/jenkins-server
+    docker push ugbechie/jenkins-server
+
+    Terrafrom will then
+
+    docker pull ugbechie/jenkins-server
+    docker run -d --name jenkins-server -p 80:8080 -v $JENKINS_HOME:/var/jenkins_home  ugbechie/jenkins-server
