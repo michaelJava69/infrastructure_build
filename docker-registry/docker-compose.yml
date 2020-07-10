@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password
+      # REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+      REGISTRY_STORAGE: s3
+      REGISTRY_STORAGE_S3_REGION: eu-west-2
+      REGISTRY_STORAGE_S3_BUCKET: pipline-registry-bucket
+      REGISTRY_STORAGE_S3_ENCRYPT: 'false'
+      REGISTRY_STORAGE_S3_SECURE: 'true'
+      REGISTRY_STORAGE_S3_V4AUTH: 'true'
+      REGISTRY_STORAGE_S3_CHUNKSIZE: 5242880
+      REGISTRY_STORAGE_S3_ROOTDIRECTORY: /image-registry
+    volumes:
+      - ./auth:/auth
+      - ./data:/data
