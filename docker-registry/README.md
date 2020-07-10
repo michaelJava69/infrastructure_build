@@ -358,9 +358,10 @@ Step 6 — Publishing to Your Private Docker Registry
 ```
 
 
-
 Use
 ----
+
+```
 
 login:
 docker login https://registry.mydocker.ga
@@ -377,3 +378,14 @@ docker tag <image> registry.mydocker.ga/ubuntu
 push:
 sudo docker push  registry.mydocker.ga/ubuntu
 sudo docker push registry.mydocker.ga/jenkins-server
+
+
+S3
+--
+Check s3 bucket
+
+https://s3.console.aws.amazon.com/s3/buckets/pipline-registry-bucket/image-registry/docker/registry/v2/repositories/?region=eu-west-2&tab=overview#
+
+pipeline-registry-bucket
+
+```
