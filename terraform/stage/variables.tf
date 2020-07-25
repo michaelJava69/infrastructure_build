@@ -11,8 +11,9 @@ variable "availability_zone" {
 
 variable "jenkins_name" {
   description = "The name of the Jenkins server."
-  default = "Baked Jenkins via TF"
+  default = "terraform-baked-jenkins-pipeline"
 }
+
 
 variable "amis" {
   description = "Which AMI to spawn. Defaults to the Weave ECS AMIs: https://github.com/weaveworks/integrations/tree/master/aws/ecs."
