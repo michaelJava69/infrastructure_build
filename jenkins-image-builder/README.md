@@ -16,17 +16,26 @@ Source code in this repository is used for set of Jenkins tutorials on [Popularo
 
 You can just build Docker image from the provided Dockerfile and run Docker container locally.
 
-    cd files
+    cd jenkins-image-builder
     docker build -t michael/jenkins .
     docker run -d --name jenkins-server -p 80:8080 michael/jenkins
+    
+    docker will not work in container unless run with
+    
+    docker run -d --name jenkins-server -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 jenkins-pipeline:0.1
+    
+    https://stackoverflow.com/questions/38105308/jenkins-cant-connect-to-docker-daemon
+    ----------------------------------------------------------------------------------
+    
 
-    docker tag  michael/jenkins ugbechie/jenkins-server
-    docker push ugbechie/jenkins-server
+    docker tag  michael/jenkins ugbechie/jenkins-server:0.1
+    docker push ugbechie/jenkins-server:0.1
 
     Terrafrom will then
 
     docker pull ugbechie/jenkins-server
-    docker run -d --name jenkins-server -p 80:8080 -v $JENKINS_HOME:/var/jenkins_home  ugbechie/jenkins-server
+    docker run -d --name jenkins-server -p 80:8080 -v /var/run/docker.sock:/var/run/docker.sock -v $JENKINS_HOME:/var/jenkins_home  ugbechie/jenkins-server:0.1
+    
     
 ```
 
