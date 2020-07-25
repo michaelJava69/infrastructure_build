@@ -16,7 +16,7 @@ terraform {
      bucket         = "s3-bucket-jenkins-terraform"
      key            = "terraform/terraform.tfstate"
      region         = "us-east-2"
-     dynamodb_table = "s3-bucket-jenkins-terraform-locks"
+     dynamodb_table = "s3-bucket-jenkins-terraform-pipeline-locks"
      encrypt        = true
 
   }
