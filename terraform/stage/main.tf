@@ -13,7 +13,7 @@ terraform {
     # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
     # manually, uncomment and fill in the config below.
 
-     bucket         = "s3-bucket-jenkins-terraform"
+     bucket         = "s3-bucket-jenkins-terraform-pipeline"
      key            = "terraform/terraform.tfstate"
      region         = "us-east-2"
      dynamodb_table = "s3-bucket-jenkins-terraform-pipeline-locks"
