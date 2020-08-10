@@ -4,6 +4,7 @@ FROM jenkins/jenkins:lts
 # Install Docker
 
 USER root
+
 RUN apt-get update && \
 apt-get -y install apt-transport-https \
     ca-certificates \
@@ -20,8 +21,13 @@ apt-get -y install docker-ce
 RUN apt-get install -y docker-ce
 RUN usermod -a -G docker jenkins
 
-USER jenkins
+#jq
+RUN apt update && \
+    apt install sudo curl jq apt-utils -y
 
+
+
+USER jenkins
 
 # install jenkins plugins
 COPY ./jenkins-plugins /usr/share/jenkins/plugins
@@ -41,4 +47,3 @@ COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 
 # volume for Jenkins settings
 VOLUME /var/jenkins_home
-
